@@ -1,0 +1,331 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CoPilot.Speedway.View.Backup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    x:Name="BackupRoot"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideRightFadeOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <Grid>
+
+        <Grid Margin="0,0,120,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Tap">
+                    <i:InvokeCommandAction Command="{Binding TapCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <TextBlock Grid.Row="0" Style="{StaticResource Title}" HorizontalAlignment="Left" Margin="20,10,0,0" Text="{Binding LocalizedResources.BackupOptions, Mode=OneWay, Source={StaticResource LocalizedStrings}}" />
+            <Grid Margin="20,0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="289*"/>
+                    <ColumnDefinition Width="286*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ROW 1 -->
+                <TextBlock Grid.Row="0" Style="{StaticResource Row}" Text="{Binding LocalizedResources.UsedAccounts, StringFormat='{}{0}:', Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0,20" Grid.ColumnSpan="2" />
+                <StackPanel Grid.Row="0" Grid.Column="2" Margin="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+                    <Button 
+                        Command="{Binding OneDriveCommand}"
+                        IsEnabled="{Binding FtpController.IsOneDriveAvailable}" 
+                        Style="{StaticResource MenuButton}" 
+                        Width="70" 
+                        Height="70">
+                        <Image Source="/Resources/Images/Info/onedrive.png" Margin="-20" />
+                    </Button>
+                </StackPanel>
+
+
+                <!-- ROW 2 -->
+                <StackPanel Grid.Row="1" Margin="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+                    <Image Width="30" Margin="0,0,10,0" Source="/Resources/Images/Info/date.png"  />
+                    <TextBlock Style="{StaticResource Row}" Text="{Binding LocalizedResources.LastBackup, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0" />
+                </StackPanel>
+                <TextBlock Grid.Row="1" Grid.Column="2" Visibility="{Binding DataController.IsBackupAvailable, Converter={StaticResource BooleanToVisibilityConvertor}}" Style="{StaticResource RowValue}" Text="{Binding DataController.Backup.Date}" Foreground="Gray" TextAlignment="Right" />
+                <TextBlock Grid.Row="1" Grid.Column="2" Visibility="{Binding DataController.IsBackupAvailable, Converter={StaticResource BooleanToCollapsedConvertor}}" Style="{StaticResource RowValue}" Text="{Binding LocalizedResources.BackupUnknown, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Foreground="Gray" TextAlignment="Right" />
+
+                <!-- ROW 3 -->
+                <TextBlock Grid.Row="2" Style="{StaticResource Row}" Text="{Binding LocalizedResources.BackupCurrentId, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0,20" Grid.ColumnSpan="2" />
+                <TextBlock Grid.Row="2" Grid.Column="2" Margin="-100,0,10,0" Visibility="{Binding DataController.IsBackupAvailable, Converter={StaticResource BooleanToVisibilityConvertor}}" Style="{StaticResource RowValue}" Text="{Binding DataController.Backup.Id}" Foreground="Gray" TextAlignment="Right" />
+                <TextBlock Grid.Row="2" Grid.Column="2" Margin="-100,0,10,0" Visibility="{Binding DataController.IsBackupAvailable, Converter={StaticResource BooleanToCollapsedConvertor}}" Style="{StaticResource RowValue}" Text="{Binding LocalizedResources.BackupUnknown, Mode=OneWay, Source={StaticResource LocalizedStrings}}" TextAlignment="Right" Foreground="Gray" />
+
+                <!-- ROW 4 -->
+                <CheckBox IsChecked="{Binding DataController.IsBackupOnStart, Mode=TwoWay, FallbackValue=False}" Grid.Row="3" Grid.Column="0" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource Row}" Text="{Binding LocalizedResources.BackupAllowOnStart, Mode=OneWay, Source={StaticResource LocalizedStrings}}" Margin="0,20" Grid.ColumnSpan="2" />
+
+            </Grid>
+        </Grid>
+
+        <!-- MENU -->
+        <Grid
+            Name="Menu"
+            HorizontalAlignment="Right"
+            Width="740">
+            <Grid.Projection>
+                <PlaneProjection GlobalOffsetX="620"/>
+            </Grid.Projection>
+
+            <!-- property watcher for visual states -->
+            <i:Interaction.Behaviors>
+                <ec:DataStateBehavior Binding="{Binding MenuController.IsOpen}" Value="True" TrueState="Open"/>
+                <ec:DataStateBehavior Binding="{Binding MenuController.IsOpen}" Value="False" TrueState="Close"/>
+            </i:Interaction.Behaviors>
+
+            <!-- visual states -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition To="Close" GeneratedDuration="0:0:0.2">
+                            <Storyboard>
+                                <DoubleAnimation 
+							        Storyboard.TargetName="Menu"
+							        Storyboard.TargetProperty="(Grid.Projection).(PlaneProjection.GlobalOffsetX)"
+							        To="620"
+							        Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </VisualTransition>
+                        <VisualTransition To="Open" GeneratedDuration="0:0:0.2">
+                            <Storyboard>
+                                <DoubleAnimation 
+							        Storyboard.TargetName="Menu"
+							        Storyboard.TargetProperty="(Grid.Projection).(PlaneProjection.GlobalOffsetX)"
+							        To="5"
+							        Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </VisualTransition>
+                    </VisualStateGroup.Transitions>
+
+                    <VisualState x:Name="Close">
+                        <Storyboard>
+                            <DoubleAnimation 
+							    Storyboard.TargetName="Menu"
+							    Storyboard.TargetProperty="(Grid.Projection).(PlaneProjection.GlobalOffsetX)"
+							    To="620"
+							    Duration="0"/>
+                        </Storyboard>
+                    </VisualState>
+
+                    <VisualState x:Name="Open">
+                        <Storyboard>
+                            <DoubleAnimation 
+							    Storyboard.TargetName="Menu"
+							    Storyboard.TargetProperty="(Grid.Projection).(PlaneProjection.GlobalOffsetX)"
+							    To="5"
+							    Duration="0"/>
+                        </Storyboard>
+                    </VisualState>
+
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <VisualStateManager.CustomVisualStateManager>
+                <ec:ExtendedVisualStateManager/>
+            </VisualStateManager.CustomVisualStateManager>
+
+            <Grid
+                Width="120"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Left"
+                Background="{StaticResource PhoneChromeBrush}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Button 
+                    IsEnabled="{Binding FtpController.IsLogged}"
+                    Command="{Binding MainBackupTap}" 
+                    Grid.Row="0" 
+                    Style="{StaticResource MenuButton}">
+                    <Image Source="/Resources/Images/Buttons/backup.png" Width="40" />
+                </Button>
+                <Rectangle VerticalAlignment="Bottom" Grid.Row="0" Fill="{StaticResource LineColor}" Height="1" />
+
+            </Grid>
+            <Grid
+                Width="620"
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Right"
+                Background="{StaticResource PhoneChromeBrush}">
+
+                <Rectangle HorizontalAlignment="Left" Grid.Row="0" Fill="{StaticResource LineColor}" Width="1" />
+
+                <!-- MAIN BACKUP -->
+                <Grid Visibility="{Binding MenuController.Context, ConverterParameter='MainBackup', Converter={StaticResource ContextMenuToVisibilityConvertor}}">
+                    <ScrollViewer>
+                        <StackPanel Orientation="Vertical">
+
+                            <Button 
+                                IsEnabled="{Binding FtpController.IsNetEnabled}"
+                                Command="{Binding BackupCommand}" 
+                                CommandParameter="MainData"
+                                Style="{StaticResource MenuButton}" 
+                                HorizontalContentAlignment="Stretch" 
+                                Height="100">
+                                <Grid Height="50">
+                                    <Image Width="40" HorizontalAlignment="Left" Source="/Resources/Images/Buttons/backup.png" />
+                                    <TextBlock Margin="80,0,0,0" Text="{Binding LocalizedResources.BackupMainFile, Mode=OneWay, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" TextAlignment="Left" />
+
+                                    <!-- NORMAL -->
+                                    <TextBlock Margin="80,0,0,0" 
+                                               Text="{Binding DataController.Size, StringFormat='{}{0} MB', FallbackValue='--'}" 
+                                               Visibility="{Binding UploadProgress.InProgress, Converter={StaticResource BooleanToCollapsedConvertor}}" 
+                                               VerticalAlignment="Bottom" 
+                                               TextAlignment="Left" 
+                                               FontSize="16"
+                                               Foreground="Gray" />
+
+                                    <!-- PROGRESS -->
+                                    <Grid Margin="80,0,0,0" Visibility="{Binding UploadProgress.InProgress, Converter={StaticResource BooleanToVisibilityConvertor}}">
+                                        <TextBlock 
+                                            Visibility="{Binding UploadProgress.BytesTransferred, Converter={StaticResource CountToCollapsedConvertor}, ConverterParameter='0'}"
+                                            Text="{Binding UploadProgress.Preferences, Converter={StaticResource PreferencesToTextConvertor}}" 
+                                            VerticalAlignment="Bottom" 
+                                            TextAlignment="Left" 
+                                            Margin="0,0,0,4" 
+                                            FontSize="16" 
+                                            Foreground="Gray"/>
+                                        <ProgressBar 
+                                            IsIndeterminate="{Binding UploadProgress.BytesTransferred, Converter={StaticResource ZeroToBooleanConvertor}}"
+                                            Value="{Binding UploadProgress.ProgressPercentage}"
+                                            VerticalAlignment="Bottom" 
+                                            Margin="0,0,50,0" />
+                                        <Button Command="{Binding CancelCommand}" CommandParameter="{Binding UploadProgress}" HorizontalAlignment="Right" Style="{StaticResource MenuButton}">
+                                            <Image Source="/Resources/Images/Buttons/cancel.png" />
+                                        </Button>
+                                    </Grid>
+
+                                </Grid>
+                            </Button>
+                            <Rectangle VerticalAlignment="Bottom" Grid.Row="2" Fill="{StaticResource LineColor}" Height="1" />
+
+                            <Button 
+                                IsEnabled="{Binding DataController.IsBackupAvailable}"
+                                Command="{Binding ShowCommand}" 
+                                CommandParameter="MainData"
+                                Style="{StaticResource MenuButton}" 
+                                HorizontalContentAlignment="Stretch" 
+                                Height="100">
+                                <Grid Height="50">
+                                    <Image Width="40" HorizontalAlignment="Left" Source="/Resources/Images/Buttons/link.png" />
+                                    <TextBlock Margin="80,0,0,0" Text="{Binding LocalizedResources.OpenLinkInBrowser, Mode=OneWay, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" TextAlignment="Left" />
+                                </Grid>
+                            </Button>
+                            <Rectangle VerticalAlignment="Bottom" Grid.Row="2" Fill="{StaticResource LineColor}" Height="1" />
+
+                            <Button 
+                                IsEnabled="{Binding DataController.IsBackupAvailable}"
+                                Command="{Binding EmailCommand}" 
+                                CommandParameter="MainData"
+                                Style="{StaticResource MenuButton}" 
+                                HorizontalContentAlignment="Stretch" 
+                                Height="100">
+                                <Grid Height="50">
+                                    <Image Width="40" HorizontalAlignment="Left" Source="/Resources/Images/Buttons/sendEmail.png" />
+                                    <TextBlock Margin="80,0,0,0" Text="{Binding LocalizedResources.SendByEmail, Mode=OneWay, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Center" TextAlignment="Left" />
+                                </Grid>
+                            </Button>
+                            <Rectangle VerticalAlignment="Bottom" Grid.Row="2" Fill="{StaticResource LineColor}" Height="1" />
+
+                            <Button 
+                                IsEnabled="{Binding UploadProgress.InProgress, Converter={StaticResource TrueToFalseConvertor}}"
+                                Command="{Binding DownloadCommand}" 
+                                CommandParameter="MainData"
+                                Style="{StaticResource MenuButton}" 
+                                HorizontalContentAlignment="Stretch" 
+                                Height="100">
+                                <Grid Height="50">
+                                    <Image Width="40" HorizontalAlignment="Left" Source="/Resources/Images/Buttons/download.png" />
+                                    <TextBlock Margin="80,0,0,0" Text="{Binding LocalizedResources.DownloadBackup, Mode=OneWay, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" TextAlignment="Left" />
+
+                                    <!-- NORMAL -->
+                                    <TextBlock Margin="80,0,0,0" 
+                                               Text="{Binding LocalizedResources.DownloadBackupHelp, Mode=OneWay, Source={StaticResource LocalizedStrings}}" 
+                                               Visibility="{Binding DownloadProgress.InProgress, Converter={StaticResource BooleanToCollapsedConvertor}}" 
+                                               VerticalAlignment="Bottom" 
+                                               TextAlignment="Left" 
+                                               FontSize="16"
+                                               Foreground="Gray" />
+
+                                    <!-- PROGRESS -->
+                                    <Grid Margin="80,0,0,0" Visibility="{Binding DownloadProgress.InProgress, Converter={StaticResource BooleanToVisibilityConvertor}}">
+                                        <TextBlock 
+                                            Visibility="{Binding DownloadProgress.BytesTransferred, Converter={StaticResource CountToCollapsedConvertor}, ConverterParameter='0'}"
+                                            Text="{Binding DownloadProgress.Preferences, Converter={StaticResource PreferencesToTextConvertor}}" 
+                                            VerticalAlignment="Bottom" 
+                                            TextAlignment="Left" 
+                                            Margin="0,0,0,4" 
+                                            FontSize="16" 
+                                            Foreground="Gray"/>
+                                        <ProgressBar 
+                                            Margin="0,0,50,0"
+                                            IsIndeterminate="{Binding DownloadProgress.BytesTransferred, Converter={StaticResource ZeroToBooleanConvertor}}"
+                                            Value="{Binding DownloadProgress.ProgressPercentage}"
+                                            VerticalAlignment="Bottom" />
+                                        <Button Command="{Binding CancelCommand}" CommandParameter="{Binding DownloadProgress}" HorizontalAlignment="Right" Style="{StaticResource MenuButton}">
+                                            <Image Source="/Resources/Images/Buttons/cancel.png" />
+                                        </Button>
+                                    </Grid>
+
+                                </Grid>
+                            </Button>
+                            <Rectangle VerticalAlignment="Bottom" Grid.Row="2" Fill="{StaticResource LineColor}" Height="1" />
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

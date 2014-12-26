@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllowOnCelluralAndBatery" xml:space="preserve">
+    <value>Čekám na spojení ...</value>
+  </data>
+  <data name="AllowOnWifiAndBatery" xml:space="preserve">
+    <value>Čekám na Wi-Fi ...</value>
+  </data>
+  <data name="AllowOnWifiAndExternalPower" xml:space="preserve">
+    <value>Zapojte napájení a Wi-Fi ...</value>
+  </data>
+  <data name="AppEndDescription" xml:space="preserve">
+    <value>Pro ukončení aplikace stiskněte znovu tlačítko zpět. Nahrávání bude ukončeno.</value>
+  </data>
+  <data name="AppEndTitle" xml:space="preserve">
+    <value>Ukončit aplikaci?</value>
+  </data>
+  <data name="AvarageSpeed" xml:space="preserve">
+    <value>Průměrná rychlost: </value>
+  </data>
+  <data name="BackupAllowOnStart" xml:space="preserve">
+    <value>Povolit zálohu při startu</value>
+  </data>
+  <data name="BackupApplyDescription" xml:space="preserve">
+    <value>Opravdu chcete použít tuto zálohu z úložiště? Tato akce je nevratná!</value>
+  </data>
+  <data name="BackupApplyTitle" xml:space="preserve">
+    <value>Použít zálohu?</value>
+  </data>
+  <data name="BackupCurrentId" xml:space="preserve">
+    <value>Aktuální id zálohy</value>
+  </data>
+  <data name="BackupDownload" xml:space="preserve">
+    <value>stáhnout do zařízení</value>
+  </data>
+  <data name="BackupMainFile" xml:space="preserve">
+    <value>Zálohovat hlavní data</value>
+  </data>
+  <data name="BackupOptions" xml:space="preserve">
+    <value>Možnosti zálohování</value>
+  </data>
+  <data name="BackupUnknown" xml:space="preserve">
+    <value>nezálohováno</value>
+  </data>
+  <data name="Backup_NotSignedIn" xml:space="preserve">
+    <value>Nejste přihlášeni</value>
+  </data>
+  <data name="Backup_NotSignedIn_Description" xml:space="preserve">
+    <value>Nejste přihlášeni do žádného cloudového úložiště. Pro správné fungování záloh je nutné se přihlásit.</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Články na bloku</value>
+  </data>
+  <data name="BluetoothIsNotAllowed" xml:space="preserve">
+    <value>OBD není povoleno k používání</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="CurrentLap" xml:space="preserve">
+    <value>Aktuální kolo</value>
+  </data>
+  <data name="DeviceNotFound" xml:space="preserve">
+    <value>Zařízení nebylo nalezeno, klikněte pro obnovení</value>
+  </data>
+  <data name="Distance" xml:space="preserve">
+    <value>Jednotka vzdálenosti</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Přispějte</value>
+  </data>
+  <data name="DownloadBackup" xml:space="preserve">
+    <value>Stáhnout zálohu</value>
+  </data>
+  <data name="DownloadBackupHelp" xml:space="preserve">
+    <value>Klikněte zde pro stáhnutí zálohy z úložiště</value>
+  </data>
+  <data name="ErrorDescription" xml:space="preserve">
+    <value>Omlouváme se, ale v aplikaci došlo k neočekávané chybě. Prosím, pomožte mi aplikaci vylepšit a odešlete mi email s chybovým hlášením po dalším startu aplikace. Aplikace bude nyní zavřena.</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>A je to dole :(</value>
+  </data>
+  <data name="FastestsLap" xml:space="preserve">
+    <value>Nejrychlejší kolo: </value>
+  </data>
+  <data name="FueledUnit" xml:space="preserve">
+    <value>Litrů</value>
+  </data>
+  <data name="Gallon" xml:space="preserve">
+    <value>Gallon</value>
+  </data>
+  <data name="GpsNotAccurred" xml:space="preserve">
+    <value>Čekám na kvalitní signál z gps přijímače. Bez toho není možné začít měření okruhu.</value>
+  </data>
+  <data name="GpsNotAccurredTitle" xml:space="preserve">
+    <value>Nekvalitní signál</value>
+  </data>
+  <data name="Laps" xml:space="preserve">
+    <value>Předchozí kola</value>
+  </data>
+  <data name="LapsTime" xml:space="preserve">
+    <value>Časy kol</value>
+  </data>
+  <data name="LastBackup" xml:space="preserve">
+    <value>Poslední záloha</value>
+  </data>
+  <data name="MoreDevices" xml:space="preserve">
+    <value>Více OBD zařízení, klikněte pro výběr jednoho</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Jméno okruhu</value>
+  </data>
+  <data name="NoLap_Description" xml:space="preserve">
+    <value>Nedokončili jste žádné kolo. Není možné uložit tento pokus do záznamu. Nejdříve dojeďte alespoň jedno kolo a poté ukončete nahrávání.</value>
+  </data>
+  <data name="NoLap_Title" xml:space="preserve">
+    <value>Žádné ukončené kolo</value>
+  </data>
+  <data name="ObdBuy" xml:space="preserve">
+    <value>Co je OBD a kde to koupit?</value>
+  </data>
+  <data name="ObdDescription" xml:space="preserve">
+    <value>V roce 1996 v USA vyšly v platnost standardy označované souhrnně jako OBD-II. Tyto normy definují požadavky na každé vyrobené vozidlo za účelem možnosti digitální diagnostiky systémů ovlivňujících emise vozidla. Standard SAE J1962 zavádí jednotnou 16 pinovou diagnostickou zásuvku, která musí být v každém vozidle umístěna z místa přístupného řidiči, nejdále však 50 cm od volantu. Dále standardy ISO 9141 a SAE J1850 definují povinnou fyzickou vrstvu pro komunikaci s emisními systémy. Každé vozidlo vyrobené po roce 1996 musí obsahovat alespoň jedno diagnostické vedení definované těmito standardy. V roce 2003 byly tyto normy rozšířeny o diagnostiku emisních systémů přes sběrnici CAN-BUS. Ta je definována ve standardu ISO 15765-1 a ISO 15765-4. Diagnostika OBD-II umožňuje spojení pouze s řídicími jednotkami týkajících se emisních systémů osobních automobilů, nelze se spojit např. s řídicí jednotkou airbagu, palubního počítače, navigace, rádia, apod.</value>
+  </data>
+  <data name="ObdFatalError" xml:space="preserve">
+    <value>Něco strašného se stalo</value>
+  </data>
+  <data name="ObdInfo" xml:space="preserve">
+    <value>Informace o OBD modulu</value>
+  </data>
+  <data name="ObdInfo_Title1" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="ObdInfo_Title2" xml:space="preserve">
+    <value>Umístění</value>
+  </data>
+  <data name="ObdInfo_Title3" xml:space="preserve">
+    <value>Kde koupit?</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Rozumím</value>
+  </data>
+  <data name="OpenBackup" xml:space="preserve">
+    <value>Zálohování</value>
+  </data>
+  <data name="OpenLinkInBrowser" xml:space="preserve">
+    <value>Otevřít v prohlížeči</value>
+  </data>
+  <data name="OutOfRangeOfDevice" xml:space="preserve">
+    <value>Zařízení mimo dosah, klikněte pro obnovení</value>
+  </data>
+  <data name="Per" xml:space="preserve">
+    <value>za</value>
+  </data>
+  <data name="PerHour" xml:space="preserve">
+    <value>/ h</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Ochrana osobních údajů</value>
+  </data>
+  <data name="RateApp" xml:space="preserve">
+    <value>Ohodnotit</value>
+  </data>
+  <data name="ReceivingDataFromObd" xml:space="preserve">
+    <value>Čtení dat ze zařízení</value>
+  </data>
+  <data name="ReportDescription" xml:space="preserve">
+    <value>Aplikace byla naposled ukončena s chybou. Chcete pomoci vylepšit aplikaci a chybu nahlásit?</value>
+  </data>
+  <data name="ReportTitle" xml:space="preserve">
+    <value>Nahlášení chyby aplikace</value>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>cs-CZ</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="Searching" xml:space="preserve">
+    <value>Hledám ...</value>
+  </data>
+  <data name="SelectObdDevice" xml:space="preserve">
+    <value>Vyberte OBD zařízení</value>
+  </data>
+  <data name="SendByEmail" xml:space="preserve">
+    <value>Poslat odkaz na zálohu emailem</value>
+  </data>
+  <data name="ShareCircuit" xml:space="preserve">
+    <value>Sdílet okruh</value>
+  </data>
+  <data name="ShareLap" xml:space="preserve">
+    <value>Nasdílet!</value>
+  </data>
+  <data name="Social" xml:space="preserve">
+    <value>Sítě</value>
+  </data>
+  <data name="SpeedDescription" xml:space="preserve">
+    <value>Zastavte automobil, začít měření je možné pouze pokud stojíte na místě. Vaše aktuální rychlost je:</value>
+  </data>
+  <data name="SpeedTitle" xml:space="preserve">
+    <value>Zastavte vaše auto</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Spustit</value>
+  </data>
+  <data name="StartDescription" xml:space="preserve">
+    <value>Aplikace nyní vyčkává na vystartování. Až se rozjedete, automaticky se začne započítávat čas. Akci můžete nyní zrušit nebo kdykoliv v průběhu jízdy.</value>
+  </data>
+  <data name="StartRacing" xml:space="preserve">
+    <value>Začít závod</value>
+  </data>
+  <data name="StartTitle" xml:space="preserve">
+    <value>Vystartujte až budete připraveni!</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Zastavit</value>
+  </data>
+  <data name="TotalLaps" xml:space="preserve">
+    <value>okruhů</value>
+  </data>
+  <data name="TurnOnBluetooth" xml:space="preserve">
+    <value>Zapněte prosím bluetooth kliknutím</value>
+  </data>
+  <data name="Tutorial_WhatIsIt" xml:space="preserve">
+    <value>Co je CoPilot SpeedWay?</value>
+  </data>
+  <data name="UsedAccounts" xml:space="preserve">
+    <value>Účty použité pro zálohu</value>
+  </data>
+  <data name="UseGpsSenzor" xml:space="preserve">
+    <value>Použít GPS senzor</value>
+  </data>
+  <data name="UseObdDevice" xml:space="preserve">
+    <value>Použít OBD zařízení</value>
+  </data>
+  <data name="WrongLap_Description" xml:space="preserve">
+    <value>Vzdálili jste se z původní cesty. Nahrávání bylo automaticky ukončeno a toto kolo již nebylo započítáno.</value>
+  </data>
+  <data name="WrongLap_Title" xml:space="preserve">
+    <value>Neplatná cesta</value>
+  </data>
+  <data name="BackupNotFoundDescription" xml:space="preserve">
+    <value>Záložní soubor nebyl na serveru nalezen.</value>
+  </data>
+  <data name="BackupNotFoundTitle" xml:space="preserve">
+    <value>Záloha nebyla nalezena</value>
+  </data>
+  <data name="SendByEmailBody" xml:space="preserve">
+    <value>Zde najdete link pro vaše zazálohovaná data.{E}Id vaší zálohy je {0}{E}Klikněte na {1} pro stáhnutí souboru.</value>
+  </data>
+  <data name="SendByEmailSubject" xml:space="preserve">
+    <value>Odkaz na vaši zálohu</value>
+  </data>
+  <data name="Tutorial_End" xml:space="preserve">
+    <value>Zavřít tutoriál?</value>
+  </data>
+  <data name="Tutorial_End_Description" xml:space="preserve">
+    <value>Opravdu si přejete zavřít tutoriál? Tutoriál může být kdykoliv spuštěn z hlavního menu aplikace.</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Předchozí</value>
+  </data>
+  <data name="Tutorial_Backup" xml:space="preserve">
+    <value>Záloha aplikace</value>
+  </data>
+  <data name="Tutorial_BackupFileMenu" xml:space="preserve">
+    <value>Menu pro zálohu hlavního souboru</value>
+  </data>
+  <data name="Tutorial_BackupFileMenu_Description" xml:space="preserve">
+    <value>V tomto menu jsou zobrazeny čtyři tlačítka. 1) Slouží pro spuštění zálohy hlavního souboru. 2) Pokud je záloha vytvořena, toto tlačítko slouží pro její zobrazení v prohlížeči nebo 3) poslání na email. Pokud máte k dispozici starou zálohu na cloudovém úložišti, 4) můžete ji stáhnout.</value>
+  </data>
+  <data name="Tutorial_Backup_Description" xml:space="preserve">
+    <value>Po kliknutí na tlačíko "Záloha" v menu nastavení se zobrazí stránka s informacemi o zálohách aplikace. Zde naleznete datum poslední zálohy, identifikátor zálohy a nastavení zálohy. 1) Slouží pro nastavení automatické zálohy po spuštění aplikace a 2) musíte se přihlásit do cloudového úložiště, pokud chcete data zálohovat.</value>
+  </data>
+  <data name="Tutorial_Information" xml:space="preserve">
+    <value>Prosím, věnujte pár minut tomuto tutoriálu.</value>
+  </data>
+  <data name="Tutorial_LapsMenu" xml:space="preserve">
+    <value>Menu kol</value>
+  </data>
+  <data name="Tutorial_LapsMenu_Description" xml:space="preserve">
+    <value>Zde se nachází seznam všech okruhů 1). Jsou zde jen unikátní kola a ke každému je zobrazen nejlepší čas. Jména kol jsou generována automaticky podle délky a umístění. Program automaticky rozpoznává stejná kola, takže je můžete zkoušet jezdit pořád znovu a znovu.</value>
+  </data>
+  <data name="Tutorial_MainScreen" xml:space="preserve">
+    <value>Hlavní obrazovka</value>
+  </data>
+  <data name="Tutorial_MainScreen_Description_One" xml:space="preserve">
+    <value>Na hlavní obrazovce vidíte mapu a aktuální polohu, kde se nacházíte. Zde najdete informace o stavu GPS signálu a pokud se pohybujete, uvidíte informace o vaší rychlosti. Start tlačítko jde použít jen pokud se auto nepohybuje a kvalita signálu je dobrá.</value>
+  </data>
+  <data name="Tutorial_MainScreen_Description_Two" xml:space="preserve">
+    <value>Hlavní menu obsahuje čyři základní tlačítka.  1) Časy, 2) Kola, 3) Sdílení a 4) Nastavení a ostatní.</value>
+  </data>
+  <data name="Tutorial_Measurement" xml:space="preserve">
+    <value>Meření kola</value>
+  </data>
+  <data name="Tutorial_Measurement_Description" xml:space="preserve">
+    <value>Po zmáčknutí tlačítka start bude aplikace čekat na rozjetí automobilu. Jakmile se dá do pohybu, automaticky začne měření a zobrazování trati. Aplikace je v tuto chvíli neaktivní a jediná možnost je zastavit meření tlačítkem stop. Pokud neuděláte ani jedno kolo, čas se nezapočítá.</value>
+  </data>
+  <data name="Tutorial_MoreMenu" xml:space="preserve">
+    <value>Menu nastavení a ostatní</value>
+  </data>
+  <data name="Tutorial_MoreMenu_Description" xml:space="preserve">
+    <value>Pokud kliknete na menu nastavení (tři tečky), před vámi se zobrazí seznam nastavení aplikace a další možnosti aplikace. 1) Slouží pro povolení používat GPS polohu, 2) Slouží pro připojení OBD modulu, pokud jich máte k dispozici více, slouží pro výběr jednoho, 3) Je záloha aplikace, kde si můžete nastavit a zálohovat vše důležité. V tomto menu je také nastavení jednotek aplikace a odkazy na sociální sitě.</value>
+  </data>
+  <data name="Tutorial_ThanksEnd" xml:space="preserve">
+    <value>A to je vše</value>
+  </data>
+  <data name="Tutorial_ThanksEnd_Description" xml:space="preserve">
+    <value>Tento tutoriál je u konce a můžete ho kdykoliv znovu spustit z menu aplikace.</value>
+  </data>
+  <data name="Tutorial_ThankYou" xml:space="preserve">
+    <value>Děkuji za nainstalování aplikace CoPilot SpeedWay.</value>
+  </data>
+  <data name="Tutorial_TimesMenu" xml:space="preserve">
+    <value>Menu časů</value>
+  </data>
+  <data name="Tutorial_TimesMenu_Description" xml:space="preserve">
+    <value>V tomto menu se nachází, podobně jako na úvodní obrazovce, tlačítko 1) start. Po úspěšném nahrání se zde pak zobrazují jednotlivé nahrávky 2) s počtem kolem, nejlepším časem a průměrnou rychlostí.</value>
+  </data>
+  <data name="Tutorial_Welcome" xml:space="preserve">
+    <value>Vítejte!</value>
+  </data>
+  <data name="Tutorial_WhatIsIt_Description" xml:space="preserve">
+    <value>CoPilot SpeedWay je aplikace, která slouží pro měření časů okruhů a zobrazování jejich statistik. Aplikace dokáže detekovat stejná kola, automaticky změřit projetí startem a zaznamenávat nejrychlejší časy. A to ani nemusíte startovat ze stejného místa. Aplikace také spolupracuje s aplikací CoPilot.</value>
+  </data>
+  <data name="Tutorial_Warning" xml:space="preserve">
+    <value>UPOZORNĚNÍ: Tato aplikace slouží pro měření rychlost na dráhách k tomuto určených. Nepoužívejte tuto aplikaci v běžném silničním provozu!</value>
+  </data>
+</root>
