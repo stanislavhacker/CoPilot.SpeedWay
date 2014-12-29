@@ -189,8 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README_FIRST.txt" />
-    <Content Include="Resources\fake.xml" />
-    <Content Include="Resources\fake2.xml" />
     <Content Include="Resources\Images\Buttons\applouse.png" />
     <Content Include="Resources\Images\Buttons\backup.png" />
     <Content Include="Resources\Images\Buttons\blog.png" />
