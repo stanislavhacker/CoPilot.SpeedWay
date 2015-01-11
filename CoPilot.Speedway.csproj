@@ -174,6 +174,10 @@
       <Project>{14f476eb-b2e5-4e1e-839c-854b8f99a2fc}</Project>
       <Name>CoPilot.OneDrive</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoPilot.Statistics\CoPilot.Statistics.csproj">
+      <Project>{f29097e2-151e-429b-95d2-dfad554d610f}</Project>
+      <Name>CoPilot.Statistics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CoPilot.Utils\CoPilot.Utils.csproj">
       <Project>{d0f2b2e0-7a2a-4700-9b89-6b11cd17a6e8}</Project>
       <Name>CoPilot.Utils</Name>
