@@ -10,6 +10,8 @@ using CoPilot.Speedway.Resources;
 using CR = CoPilot.Speedway.Controller;
 using CoPilot.Utils;
 using System.Text;
+using System.Collections.Generic;
+using CoPilot.Utils.Exception;
 
 namespace CoPilot.Speedway
 {
@@ -123,23 +125,23 @@ namespace CoPilot.Speedway
             }
             else
             {
-                //save message
-                var message = new StringBuilder();
-                message.AppendLine(e.ExceptionObject.Message);
-                message.AppendLine(Environment.NewLine);
-                message.AppendLine(e.ExceptionObject.StackTrace);
-
+                List<ExceptionInfo> data = new List<ExceptionInfo>();
+                //base error
+                data.Add(new ExceptionInfo()
+                {
+                    Message = e.ExceptionObject.Message,
+                    StackTrace = e.ExceptionObject.StackTrace
+                });
+                //inner exception
                 if (e.ExceptionObject.InnerException != null)
                 {
-                    message.AppendLine(Environment.NewLine);
-                    message.AppendLine(e.ExceptionObject.InnerException.Message);
-                    message.AppendLine(Environment.NewLine);
-                    message.AppendLine(e.ExceptionObject.InnerException.StackTrace);
+                    data.Add(new ExceptionInfo()
+                    {
+                        Message = e.ExceptionObject.InnerException.Message,
+                        StackTrace = e.ExceptionObject.InnerException.StackTrace
+                    });
                 }
-
-                //save to isolated storage
-                Settings.Add("error", message.ToString());
-
+                ExceptionCollector.Collect(data);
                 //error save
                 MessageBox.Show(AppResources.ErrorDescription, AppResources.ErrorTitle, MessageBoxButton.OK);
             }

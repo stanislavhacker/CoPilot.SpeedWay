@@ -36,6 +36,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Media.PhoneExtensions;
 using System.Text;
 using CoPilot.Statistics.Utils;
+using CoPilot.Utils.Exception;
 
 namespace CoPilot.Speedway.View
 {
@@ -856,7 +857,7 @@ namespace CoPilot.Speedway.View
             BluetoothController.Scan();
 
             //send error
-            this.sendErrorIfExists();
+            ExceptionCollector.SendError(AppResources.ReportTitle, AppResources.ReportDescription);
         }
 
         /// <summary>
@@ -1286,35 +1287,6 @@ namespace CoPilot.Speedway.View
             if (response != null)
             {
                 action(response.Data);
-            }
-        }
-
-        /// <summary>
-        /// Send error if exists
-        /// </summary>
-        private void sendErrorIfExists()
-        {
-            var error = Settings.Get("error");
-            if (error != null)
-            {
-                var result = MessageBox.Show(AppResources.ReportDescription, AppResources.ReportTitle, MessageBoxButton.OKCancel);
-                if (result == MessageBoxResult.OK)
-                {
-                    EmailComposeTask email = new EmailComposeTask();
-                    email.To = "stanislav.hacker@live.com";
-                    email.Subject = "Error in Co-Pilot app";
-
-                    var message = new StringBuilder();
-                    message.AppendLine("There is an error from application:");
-                    message.AppendLine(Environment.NewLine);
-                    message.AppendLine(error);
-
-                    email.Body = message.ToString();
-                    email.Show();
-                }
-
-                Settings.Remove("error");
-                Settings.Save();
             }
         }
 
