@@ -128,7 +128,13 @@ namespace CoPilot.Speedway.View
                 return new RelayCommand((param) =>
                 {
                     var map = this.SpeedWayMap;
-                    map.SetView(map.Center, Zoom + 2, Microsoft.Phone.Maps.Controls.MapAnimationKind.Parabolic);
+                    var zoom = Zoom + 2;
+                    if (zoom > 20)
+                    {
+                        zoom = 20;
+                    }
+                    //set on map   
+                    map.SetView(map.Center, zoom, Microsoft.Phone.Maps.Controls.MapAnimationKind.Parabolic);
                 }, param => true);
             }
         }
