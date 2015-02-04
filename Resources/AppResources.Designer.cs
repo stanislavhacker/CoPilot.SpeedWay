@@ -331,15 +331,6 @@ namespace CoPilot.Speedway.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Liters.
-        /// </summary>
-        public static string FueledUnit {
-            get {
-                return ResourceManager.GetString("FueledUnit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Gallon.
         /// </summary>
         public static string Gallon {

@@ -201,9 +201,6 @@
   <data name="FastestsLap" xml:space="preserve">
     <value>Nejrychlejší kolo: </value>
   </data>
-  <data name="FueledUnit" xml:space="preserve">
-    <value>Litrů</value>
-  </data>
   <data name="Gallon" xml:space="preserve">
     <value>Gallon</value>
   </data>

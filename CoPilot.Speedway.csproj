@@ -98,7 +98,6 @@
     <Compile Include="Data\Convertors\DistanceToStyle.cs" />
     <Compile Include="Data\Convertors\PathToBitmap.cs" />
     <Compile Include="Data\Convertors\PreferencesToText.cs" />
-    <Compile Include="Data\Convertors\RealConsumptionToString.cs" />
     <Compile Include="Data\DataContainer.cs" />
     <Compile Include="Data\MapDependency.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -155,10 +154,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\AppResources.cs.resx" />
+    <EmbeddedResource Include="Resources\AppResources.cs.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
